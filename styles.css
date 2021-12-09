@@ -9,7 +9,6 @@
 body {
     background-color: #25272E;
     color: white;
-    text-align: center;
 }
 
 header {
@@ -72,7 +71,7 @@ img {
 }
 
 .choices {
-    margin: 50px 0;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -82,10 +81,19 @@ img {
     border-radius: 50%;
     padding: 10px;
     margin: 0 20px;
+    transition: all 0.5s;
 }
 
 .choice:hover {
     cursor: pointer;
-    background-color: white;
+    background-color: red;
     border: 5px solid black;
+}
+
+#action-message {
+    text-align: center;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 25px;
 }
