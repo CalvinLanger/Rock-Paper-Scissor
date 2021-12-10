@@ -43,7 +43,7 @@ function remis() {
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
-    case "rock + scissors":
+    case "rockscissors":
     case "scissorspaper":
     case "paperrock":
       win();
