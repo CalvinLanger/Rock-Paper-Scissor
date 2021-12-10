@@ -23,17 +23,19 @@ function win() {
     userScore++;
     userScore_Span.innerHTML = userScore;
     computerScore_Span.innerHTML = computerScore;
-    result.innerHTML = "COMP = " + "(" + getComputerChoice() + ")" + " | USER win!"
+    result.innerHTML = "USER win!"
 };
 
 function lose() {
     computerScore++;
     computerScore_Span.innerHTML = computerScore;
     userScore_Span.innerHTML = userScore;
-    result.innerHTML = "COMP = " + "(" + getComputerChoice() + ")" + " | USER lose!"
+    result.innerHTML = "USER lose!"
 };
 
 function remis() {
+    userScore_Span.innerHTML = userScore;
+    computerScore_Span.innerHTML = computerScore;
     result.innerHTML = "Remis!"
 };
 
@@ -41,22 +43,24 @@ function remis() {
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
-    case "rockscissors":
-    case "paperrock":
+    case "rock + scissors":
     case "scissorspaper":
+    case "paperrock":
       win();
       break;
-    case "scissorsrock":
     case "rockpaper":
+    case "scissorsrock":
     case "paperscissors":
         lose();
       break;
-    case "scissorsscissors":
     case "rockrock":
+    case "scissorsscissors":
     case "paperpaper":
         remis();
       break;
   }
+  console.log(getComputerChoice())
+  console.log(userChoice)
 }
 
 //Start game function when you click your choice
