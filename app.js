@@ -1,48 +1,78 @@
 //Easter Egg for programmers
-console.log('Welcome in my little game, enjoy it!');
+console.log("Welcome in my little game, enjoy it!");
 
 //Game Variables
-const userScore = 0;
-const computerScore = 0;
-const userScore_Span = document.getElementById('user-score');
-const computerScore_Span = document.getElementById('computer-score');
-const scoreBoard = document.querySelector('.score-board');
-const result = document.querySelector('.results')
-const rock = document.getElementById('rock');
-const paper = document.getElementById('paper');
-const scissors = document.getElementById('scissors');
+let userScore = 0;
+let computerScore = 0;
+const userScore_Span = document.getElementById("user-score");
+const computerScore_Span = document.getElementById("computer-score");
+const scoreBoard = document.querySelector(".score-board");
+const result = document.querySelector(".results > p");
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
 
 //Computer random choice
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomNumber = Math.floor(Math.random() * 3);
-    return choices[randomNumber];
+  const choices = ["rock", "paper", "scissors"];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber];
+}
+
+function win() {
+    userScore++;
+    userScore_Span.innerHTML = userScore;
+    computerScore_Span.innerHTML = computerScore;
+    result.innerHTML = "COMP = " + "(" + getComputerChoice() + ")" + " | USER win!"
 };
 
-function game(userChoice) {
-    const computerChoice = getComputerChoice();
-    if (userChoice === computerChoice) {
-        console.log('remis')
-    } else if (userChoice != computerChoice) {
-        console.log('some result')
-    }
+function lose() {
+    computerScore++;
+    computerScore_Span.innerHTML = computerScore;
+    userScore_Span.innerHTML = userScore;
+    result.innerHTML = "COMP = " + "(" + getComputerChoice() + ")" + " | USER lose!"
 };
+
+function remis() {
+    result.innerHTML = "Remis!"
+};
+
+//Game logic
+function game(userChoice) {
+  const computerChoice = getComputerChoice();
+  switch (userChoice + computerChoice) {
+    case "rockscissors":
+    case "paperrock":
+    case "scissorspaper":
+      win();
+      break;
+    case "scissorsrock":
+    case "rockpaper":
+    case "paperscissors":
+        lose();
+      break;
+    case "scissorsscissors":
+    case "rockrock":
+    case "paperpaper":
+        remis();
+      break;
+  }
+}
 
 //Start game function when you click your choice
-rock.addEventListener('click', function() {
-    game('rock');
+rock.addEventListener("click", function () {
+  game("rock");
 });
 
-paper.addEventListener('click', function() {
-    game('paper');
+paper.addEventListener("click", function () {
+  game("paper");
 });
 
-scissors.addEventListener('click', function() {
-    game('scissors');
+scissors.addEventListener("click", function () {
+  game("scissors");
 });
 
 //Footer current Date
 const today = new Date();
 const year = today.getUTCFullYear();
-document.getElementById('current-date').innerHTML = year;
-
+document.getElementById("current-date").innerHTML = year;
