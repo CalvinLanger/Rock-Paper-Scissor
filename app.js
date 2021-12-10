@@ -11,6 +11,8 @@ const result = document.querySelector(".results > p");
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
+const messageAboutResult = document.getElementById('action-message');
+const lastResult = "Comp: " //+ computerChoice;
 
 //Computer random choice
 function getComputerChoice() {
@@ -24,6 +26,7 @@ function win() {
     userScore_Span.innerHTML = userScore;
     computerScore_Span.innerHTML = computerScore;
     result.innerHTML = "USER win!"
+    messageAboutResult.innerHTML = lastResult
 };
 
 function lose() {
@@ -31,12 +34,14 @@ function lose() {
     computerScore_Span.innerHTML = computerScore;
     userScore_Span.innerHTML = userScore;
     result.innerHTML = "USER lose!"
+    messageAboutResult.innerHTML = lastResult
 };
 
 function remis() {
     userScore_Span.innerHTML = userScore;
     computerScore_Span.innerHTML = computerScore;
     result.innerHTML = "Remis!"
+    messageAboutResult.innerHTML = lastResult
 };
 
 //Game logic
@@ -59,9 +64,9 @@ function game(userChoice) {
         remis();
       break;
   }
-  console.log(getComputerChoice())
+  console.log(computerChoice)
   console.log(userChoice)
-}
+};
 
 //Start game function when you click your choice
 rock.addEventListener("click", function () {
