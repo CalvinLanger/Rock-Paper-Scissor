@@ -108,3 +108,7 @@ footer {
     position: relative;
     margin-top: 30%;
 }
+
+footer > a {
+    color: #25272E;
+}
