@@ -1,3 +1,4 @@
+//Easter Egg for programmers
 console.log('Welcome in my little game, enjoy it!');
 
 //Game Variables
@@ -11,18 +12,23 @@ const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 
+//Computer random choice
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
-}
+};
 
 function game(userChoice) {
     const computerChoice = getComputerChoice();
-    console.log("userChoice => " + userChoice);
-    console.log("computerChoice => " + computerChoice);
-}
+    if (userChoice === computerChoice) {
+        console.log('remis')
+    } else if (userChoice != computerChoice) {
+        console.log('some result')
+    }
+};
 
+//Start game function when you click your choice
 rock.addEventListener('click', function() {
     game('rock');
 });
