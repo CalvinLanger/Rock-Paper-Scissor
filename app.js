@@ -11,8 +11,7 @@ const result = document.querySelector(".results > p");
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
-const messageAboutResult = document.getElementById('action-message');
-const lastResult = "Comp: " //+ computerChoice;
+const messageAboutResult = document.getElementById("action-message");
 
 //Computer random choice
 function getComputerChoice() {
@@ -22,27 +21,24 @@ function getComputerChoice() {
 }
 
 function win() {
-    userScore++;
-    userScore_Span.innerHTML = userScore;
-    computerScore_Span.innerHTML = computerScore;
-    result.innerHTML = "USER win!"
-    messageAboutResult.innerHTML = lastResult
-};
+  userScore++;
+  userScore_Span.innerHTML = userScore;
+  computerScore_Span.innerHTML = computerScore;
+  result.innerHTML = "USER win!";
+}
 
 function lose() {
-    computerScore++;
-    computerScore_Span.innerHTML = computerScore;
-    userScore_Span.innerHTML = userScore;
-    result.innerHTML = "USER lose!"
-    messageAboutResult.innerHTML = lastResult
-};
+  computerScore++;
+  computerScore_Span.innerHTML = computerScore;
+  userScore_Span.innerHTML = userScore;
+  result.innerHTML = "USER lose!";
+}
 
 function remis() {
-    userScore_Span.innerHTML = userScore;
-    computerScore_Span.innerHTML = computerScore;
-    result.innerHTML = "Remis!"
-    messageAboutResult.innerHTML = lastResult
-};
+  userScore_Span.innerHTML = userScore;
+  computerScore_Span.innerHTML = computerScore;
+  result.innerHTML = "Remis!";
+}
 
 //Game logic
 function game(userChoice) {
@@ -56,17 +52,16 @@ function game(userChoice) {
     case "rockpaper":
     case "scissorsrock":
     case "paperscissors":
-        lose();
+      lose();
       break;
     case "rockrock":
     case "scissorsscissors":
     case "paperpaper":
-        remis();
+      remis();
       break;
   }
-  console.log(computerChoice)
-  console.log(userChoice)
-};
+  messageAboutResult.innerHTML = "Comp: " + computerChoice + " | " + "User: " + userChoice;
+}
 
 //Start game function when you click your choice
 rock.addEventListener("click", function () {
